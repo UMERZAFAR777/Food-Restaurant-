@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Yummy Bootstrap Template</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link href="/static/assets/img/favicon.png" rel="icon">
+  <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Fonts -->
+  <link href="/static/https://fonts.googleapis.com" rel="preconnect">
+  <link href="/static/https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link
+    href="/static/https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Vendor CSS Files -->
+  <link href="/static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/static/assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/static/index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="/static/assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">Best Bite</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home<br></a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+
+
+
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+      {% if user.is_authenticated %}
+      <div style="margin-left: 20px; margin-right: 40px;" class="login">
+        <a class="btn-getstarted" href="{% url 'logout' %}" style="margin: 0px;">Logout</a>
+        <a class="btn-getstarted" href="" style="display: inline-flex; align-items: center;">
+          <i class="fas fa-user" style="margin-right: 8px;"></i> {{user.first_name}}
+        </a>
+        {% else %}
+        <div style="margin-left: 20px; margin-right: 40px;" class="login">
+          <a class="btn-getstarted" href="{% url 'login' %}" style="margin: 0px;">Login</a>
+          <a class="btn-getstarted" href="{% url 'register' %}" style="margin: 0px;">Register</a>
+          <a class="btn-getstarted" href="" style="display: inline-flex; align-items: center;">
+            <i class="fas fa-user" style="margin-right: 8px;"></i> Guest
+          </a>
+        </div>
+        {% endif %}
+
+      </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+
+      <div class="container">
+        <div class="row gy-4 justify-content-center justify-content-lg-between">
+          <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center">
+            <h1 data-aos="fade-up">Savor Every Bite of Fresh, Delicious Food</h1>
+            <p data-aos="fade-up" data-aos-delay="100">
+              Welcome to Best Bite, where every meal is crafted with quality and flavor in mind. Indulge in our tasty
+              burgers, sizzling pizzas, and refreshing drinks — all prepared fresh, just for you!
+            </p>
+            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+              <a href="#book-a-table" class="btn-get-started">Booka a Table</a>
+              <a href="" class="glightbox btn-watch-video d-flex align-items-center"><i
+                  class="bi bi-play-circle"></i><span>Watch
+                  Video</span></a>
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
+            <img src="/static/assets/img/hero-img.png" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Us<br></h2>
+        <p><span>Learn More</span> <span class="description-title">About Us</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <img src="/static/assets/img/about.jpg" class="img-fluid mb-4" alt="">
+            <div class="book-a-table">
+              <h3>Book a Birthday Table</h3>
+              <p>+1 5589 55488 55</p>
+            </div>
+          </div>
+          <div class="col-lg-5" data-aos="fade-up" data-aos-delay="250">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Discover the perfect blend of flavors with our sizzling pizzas, juicy burgers, crispy fries, and
+                refreshing beverages. At Best Bite, we’re here to serve you quality food that’s made fresh every day!
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Delicious, oven-baked pizzas with a variety of
+                    toppings to satisfy every craving.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Grilled burgers made with premium ingredients and
+                    served with all your favorite fixings.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Golden, crispy fries and sides that perfectly
+                    complement every meal.</span></li>
+                <li><i class="bi bi-check-circle-fill"></i> <span>Refresh with our cold beverages, from classic sodas to
+                    creamy milkshakes.</span></li>
+              </ul>
+              <p>
+                At Best Bite, our goal is to bring you fresh, flavorful fast food that makes every visit enjoyable. Come
+                in today to try our pizza, burgers, and more!
+              </p>
+              <div class="position-relative mt-4">
+                <img src="/static/assets/img/about-2.jpg" class="img-fluid" alt="">
+                <a href="/static/https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="why-us section light-background">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-box">
+              <h3>Why Choose Best Bite</h3>
+              <p>
+                At Best Bite, we bring you a delicious variety of fast food made with care and quality ingredients.
+                We’re dedicated to serving fresh, tasty meals that keep you coming back for more. Here’s what makes us
+                stand out:
+              </p>
+              <div class="text-center">
+                <a href="/static/#" class="more-btn"><span>Learn More</span> <i class="bi bi-chevron-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="col-xl-4">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-clipboard-data"></i>
+                  <h4>Quality Ingredients</h4>
+                  <p>We use only fresh, high-quality ingredients in every dish, ensuring each meal is as satisfying as
+                    the last.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-gem"></i>
+                  <h4>Exceptional Taste</h4>
+                  <p>Our menu is packed with flavors, from perfectly seasoned burgers to oven-baked pizzas and crispy
+                    fries.</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-inboxes"></i>
+                  <h4>Fast & Friendly Service</h4>
+                  <p>Enjoy quick, friendly service that makes every visit a pleasure. Your satisfaction is our top
+                    priority!</p>
+                </div>
+              </div><!-- End Icon Box -->
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Why Us Section -->
+
+    <!-- Stats Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Menu</h2>
+        <p><span>Check Our</span> <span class="description-title">Best Bite Menu</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          {% for i in section %}
+          <li class="nav-item">
+            <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab"
+              href="#menu-{{ i.section_name|slugify }}">
+              <h4>{{ i.section_name }}</h4>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+          {% for i in section %}
+          <div class="tab-pane fade {% if forloop.first %}show active{% endif %}"
+            id="menu-{{ i.section_name|slugify }}">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>{{ i.section_name }}</h3>
+            </div>
+
+            <div class="row gy-5">
+              <!-- Display items belonging to the current section -->
+              {% for y in menu %}
+              {% if y.section_name == i %}
+              <div class="col-lg-4">
+                <div class="card menu-item">
+                  <img style="width: 450px; height: 250px;" src="{{ y.img.url }}"
+                    class="card-img-top menu-img img-fluid" alt="{{ y.food_name }}">
+                  <div class="card-body text-center">
+                    <h4 class="card-title">{{ y.food_name }}</h4>
+                    <p class="card-text ingredients">{{ y.food_info }}</p>
+                    <p class="price">${{ y.price }}</p>
+                    <div class="d-flex justify-content-between mt-3">
+                      <!-- Favorite Button -->
+                      <button class="btn btn-outline-secondary" title="Add to Favorites">
+                        <i class="bi bi-heart"></i>
+                      </button>
+                      <!-- Add to Cart Button -->
+                      <button class="btn btn-primary">
+                        <i class="bi bi-cart-plus"></i> Add to Cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- Menu Item -->
+              {% endif %}
+              {% empty %}
+              <p>No items available in this section.</p>
+              {% endfor %}
+            </div>
+
+          </div><!-- End Section Tab Content -->
+          {% endfor %}
+        </div>
+
+      </div>
+    </section><!-- /Menu Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 1
+            }
+          }
+        }
+      </script>
+          <div class="swiper-wrapper">
+            {% for i in birthday %}
+            <div class="swiper-slide event-item"
+              style="position: relative; height: 400px; width: 100%; overflow: hidden; margin: 0; padding: 0;">
+              <div class="background-image"
+                style="background-image: url('{{ i.img.url }}'); background-size: cover; background-position: center; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; color: white; margin: 0; padding: 0; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
+                <h3 style="margin: 0;">{{ i.custom_name }}</h3>
+                <div class="price align-self-start">${{ i.price }}</div>
+                <p class="description" style="margin: 0;">
+                  {{i.description}}
+                </p>
+              </div>
+            </div><!-- End Event item -->
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- Chefs Section -->
+    <section id="chefs" class="chefs section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>chefs</h2>
+        <p><span>Our</span> <span class="description-title">Proffesional Chefs<br></span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+          {% for i in chef %}
+          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="{{i.img.url}}" class="img-fluid" alt="">
+
+              </div>
+              <div class="member-info">
+                <h4>{{i.chef_name}}</h4>
+                <span>{{chef_title}}</span>
+                <p>{{i.chef_des}}</p>
+              </div>
+            </div>
+          </div><!-- End Chef Team Member -->
+          {% endfor %}
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Chefs Section -->
+
+    
+
+
+
+
+    <!-- Book A Table Section -->
+    <section id="book-a-table" class="book-a-table section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+    
+        <p><span>Book Your</span> <span class="description-title">Birthday Table<br></span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row g-0" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 reservation-img" style="background-image: url(/static/assets/img/reservation.jpg);">
+          </div>
+
+          <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
+            <form method="POST" action="forms/book-a-table.php" method="post" role="form" class="php-email-form">
+              <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required="">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="time" class="form-control" name="time" id="time" placeholder="Time" required="">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                  <input type="number" class="form-control" name="people" id="people" placeholder="# of people"
+                    required="">
+                </div>
+              </div>
+
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+              </div>
+
+              <div class="text-center mt-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm
+                  your reservation. Thank you!</div>
+                <button type="submit">Book a Table</button>
+              </div>
+            </form>
+          </div><!-- End Reservation Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Book A Table Section -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+        <p><span>Check</span> <span class="description-title">Our Gallery</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "centeredSlides": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 0
+                },
+                "768": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                },
+                "1200": {
+                  "slidesPerView": 5,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-1.jpg"><img src="/static/assets/img/gallery/gallery-1.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-2.jpg"><img src="/static/assets/img/gallery/gallery-2.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-3.jpg"><img src="/static/assets/img/gallery/gallery-3.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-4.jpg"><img src="/static/assets/img/gallery/gallery-4.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-5.jpg"><img src="/static/assets/img/gallery/gallery-5.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-6.jpg"><img src="/static/assets/img/gallery/gallery-6.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-7.jpg"><img src="/static/assets/img/gallery/gallery-7.jpg"
+                  class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="/static/assets/img/gallery/gallery-8.jpg"><img src="/static/assets/img/gallery/gallery-8.jpg"
+                  class="img-fluid" alt=""></a></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p><span>Need Help?</span> <span class="description-title">Contact Us</span></p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+
+
+        <div class="row gy-4">
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
+              <i class="icon bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="300">
+              <i class="icon bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Call Us</h3>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+              <i class="icon bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>info@example.com</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+              <i class="icon bi bi-clock flex-shrink-0"></i>
+              <div>
+                <h3>Opening Hours<br></h3>
+                <p><strong>Mon-Sat:</strong> 11AM - 23PM; <strong>Sunday:</strong> Closed</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="600">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div>
+        </form><!-- End Contact Form -->
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
+              <strong>Email:</strong> <span>info@example.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="/static/#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="/static/#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="/static/#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="/static/#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Yummy</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="/static/https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="/static/#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/static/assets/vendor/aos/aos.js"></script>
+  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>

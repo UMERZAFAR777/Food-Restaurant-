@@ -1,0 +1,395 @@
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Our Menu</h2>
+          <p><span>Check Our</span> <span class="description-title">Best Bite Menu</span></p>
+        </div><!-- End Section Title -->
+      
+        <div class="container">
+      
+          <!-- Tabs Navigation -->
+          <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            {% for i in section %}
+              <li class="nav-item">
+                <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab" href="#menu-{{ i.section_name|slugify }}">
+                  <h4>{{ i.section_name }}</h4>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+      
+          <!-- Tab Content -->
+          <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+            {% for i in section %}
+              <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="menu-{{ i.section_name|slugify }}">
+      
+                <div class="tab-header text-center">
+                  <p>Menu</p>
+                  <h3>{{ i.section_name }}</h3>
+                </div>
+      
+                <div class="row gy-5">
+                  <!-- Display items belonging to the current section -->
+                  {% for y in menu %}
+                    {% if y.section_name == i %}
+                      <div class="col-lg-4 menu-item">
+                        <a href="{{ y.img.url }}" class="glightbox"><img src="{{ y.img.url }}" class="menu-img img-fluid" alt="{{ y.food_name }}"></a>
+                        <h4>{{ y.food_name }}</h4>
+                        <p class="ingredients">
+                          {{ y.food_info }}
+                        </p>
+                        <p class="price">
+                          ${{ y.price }}
+                        </p>
+                      </div><!-- Menu Item -->
+                    {% endif %}
+                  {% empty %}
+                    <p>No items available in this section.</p>
+                  {% endfor %}
+                </div>
+                
+              </div><!-- End Section Tab Content -->
+            {% endfor %}
+          </div>
+      
+        </div>
+      </section><!-- /Menu Section -->
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+<!-- Menu Section -->
+<section id="menu" class="menu section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Our Menu</h2>
+    <p><span>Check Our</span> <span class="description-title">Best Bite Menu</span></p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <!-- Tabs Navigation -->
+    <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+      {% for i in section %}
+        <li class="nav-item">
+          <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab" href="#menu-{{ i.section_name|slugify }}">
+            <h4>{{ i.section_name }}</h4>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+      {% for i in section %}
+        <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="menu-{{ i.section_name|slugify }}">
+
+          <div class="tab-header text-center">
+            <p>Menu</p>
+            <h3>{{ i.section_name }}</h3>
+          </div>
+
+          <div class="row gy-5">
+            <!-- Display items belonging to the current section -->
+            {% for y in menu %}
+              {% if y.section_name == i %}
+                <div class="col-lg-4">
+                  <div class="card menu-item">
+                    <img style="width: 450px; height: 250px;" src="{{ y.img.url }}" class="card-img-top menu-img img-fluid" alt="{{ y.food_name }}">
+                    <div class="card-body text-center">
+                      <h4 class="card-title">{{ y.food_name }}</h4>
+                      <p class="card-text ingredients">{{ y.food_info }}</p>
+                      <p class="price">${{ y.price }}</p>
+                      <div class="d-flex justify-content-between mt-3">
+                        <!-- Favorite Button -->
+                        <button class="btn btn-outline-secondary" title="Add to Favorites">
+                          <i class="bi bi-heart"></i>
+                        </button>
+                        <!-- Add to Cart Button -->
+                        <button class="btn btn-primary">
+                          <i class="bi bi-cart-plus"></i> Add to Cart
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div><!-- Menu Item -->
+              {% endif %}
+            {% empty %}
+              <p>No items available in this section.</p>
+            {% endfor %}
+          </div>
+          
+        </div><!-- End Section Tab Content -->
+      {% endfor %}
+    </div>
+
+  </div>
+</section><!-- /Menu Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Events Section -->
+    <section id="events" class="events section">
+
+      <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 40
+                },
+                "1200": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 1
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            {% for i in birthday %}
+            <div class="swiper-slide event-item d-flex flex-column justify-content-end">
+              <div style="background-image: url('{{ i.img.url }}'); height: 863px; width: 1024px; background-image: nore;">
+                  <h3>{{ i.custom_name }}</h3>
+                  <div class="price align-self-start">${{ i.price }}</div>
+                  <p class="description">
+                      Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere. Enim
+                      facilis veritatis id est rem repudiandae nulla expedita quas.
+                  </p>
+              </div>
+          </div><!-- End Event item -->
+{% endfor %}
+
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Events Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Events Section -->
+<section id="events" class="events section">
+
+  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 1
+            }
+          }
+        }
+      </script>
+      <div class="swiper-wrapper">
+        {% for i in birthday %}
+        <div class="swiper-slide event-item" style="position: relative; height: 400px; width: 100%; overflow: hidden;">
+          <div class="background-image" style="background-image: url('{{ i.img.url }}'); background-size: cover; background-position: center; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; color: white; padding: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
+            <h3>{{ i.custom_name }}</h3>
+            <div class="price align-self-start">${{ i.price }}</div>
+            <p class="description">
+              Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere. Enim
+              facilis veritatis id est rem repudiandae nulla expedita quas.
+            </p>
+          </div>
+        </div><!-- End Event item -->
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
+</section><!-- /Events Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+perfect
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Events Section -->
+<section id="events" class="events section">
+
+  <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="swiper init-swiper">
+      <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 1
+            }
+          }
+        }
+      </script>
+      <div class="swiper-wrapper">
+        {% for i in birthday %}
+        <div class="swiper-slide event-item" style="position: relative; height: 400px; width: 100%; overflow: hidden; margin: 0; padding: 0;">
+          <div class="background-image" style="background-image: url('{{ i.img.url }}'); background-size: cover; background-position: center; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; color: white; margin: 0; padding: 0; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
+            <h3 style="margin: 0;">{{ i.custom_name }}</h3>
+            <div class="price align-self-start">${{ i.price }}</div>
+            <p class="description" style="margin: 0;">
+              Quo corporis voluptas ea ad. Consectetur inventore sapiente ipsum voluptas eos omnis facere. Enim
+              facilis veritatis id est rem repudiandae nulla expedita quas.
+            </p>
+          </div>
+        </div><!-- End Event item -->
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
+</section><!-- /Events Section -->
