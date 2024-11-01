@@ -27,13 +27,7 @@
   <!-- Main CSS File -->
   <link href="/static/assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Yummy
-  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+ 
 </head>
 
 <body class="starter-page-page">
@@ -120,15 +114,16 @@
 
 
       <!-- Form Section -->
-      <form method="post" style="max-width: 400px; margin: 20px auto; display: flex; flex-direction: column; gap: 15px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+      <form method="post" action="" style="max-width: 400px; margin: 20px auto; display: flex; flex-direction: column; gap: 15px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
         {% csrf_token %}
         <input type="email" placeholder="Email" name="email" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         <input type="password" placeholder="Password" name="password" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
         
         <a href="#" style="text-align: right; margin-bottom: 10px; color: #007bff; text-decoration: none;">Forgot Password?</a>
-  
+    
         <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #007bff; color: white; cursor: pointer; font-weight: bold;">Log In</button>
-      </form>
+    </form>
+    
       <!-- End Form Section -->
   
     </div>
@@ -211,7 +206,7 @@
   <script src="/static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="/static/assets/vendor/php-email-form/validate.js"></script>
   <script src="/static/assets/vendor/aos/aos.js"></script>
-  <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <!-- <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script> -->
   <script src="/static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
 

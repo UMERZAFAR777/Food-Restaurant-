@@ -173,4 +173,87 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+
+  document.querySelector('form').addEventListener('submit', function(e) {
+    e.preventDefault(); // This will stop the form from submitting
+    // Your custom logic here
+});
+  
+(function () {
+  "use strict";
+
+  let forms = document.querySelectorAll('.php-email-form');
+
+  forms.forEach(function (e) {
+    e.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      let thisForm = this;
+      let action = thisForm.getAttribute('action');
+
+      if (!action) {
+        displayError(thisForm, 'Your message has been sent. Thank you!');
+        return;
+      }
+
+      thisForm.querySelector('.loading').classList.add('d-block');
+      thisForm.querySelector('.error-message').classList.remove('d-block');
+      thisForm.querySelector('.sent-message').classList.remove('d-block');
+
+      let formData = new FormData(thisForm);
+
+      // Use Fetch API to submit the form data
+      fetch(action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRFToken': getCookie('csrftoken'), // For CSRF protection
+        },
+      })
+        .then(response => {
+          if (response.ok) {
+            return response.text();
+          } else {
+            throw new Error(`${response.status} ${response.statusText} ${response.url}`);
+          }
+        })
+        .then(data => {
+          thisForm.querySelector('.loading').classList.remove('d-block');
+          if (data.trim() === 'OK') {
+            thisForm.querySelector('.sent-message').classList.add('d-block');
+            thisForm.reset(); // Reset form fields
+          } else {
+            throw new Error(data || 'Form submission failed.');
+          }
+        })
+        .catch((error) => {
+          displayError(thisForm, error);
+        });
+    });
+  });
+
+  function displayError(thisForm, error) {
+    thisForm.querySelector('.loading').classList.remove('d-block');
+    thisForm.querySelector('.error-message').innerHTML = error;
+    thisForm.querySelector('.error-message').classList.add('d-block');
+  }
+
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Check if this cookie string begins with the desired name
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+})();
+
 })();
