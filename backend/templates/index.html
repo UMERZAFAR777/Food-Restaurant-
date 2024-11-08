@@ -10,7 +10,9 @@
 
   <!-- Favicons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Amatic+SC:wght@400;700&display=swap"
+    rel="stylesheet">
 
   <link href="/static/assets/img/favicon.png" rel="icon">
   <link href="/static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -33,11 +35,246 @@
   <link href="/static/assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="/static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Link Tabs Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Main CSS File -->
-  <link href="/static/assets/css/main.css" rel="stylesheet">
+  <link href="../static/assets/css/main.css" rel="stylesheet">
 
- 
+  <!-- ///////////////////////////////////
+  Internal styles because main.css not editing -->
+  <style>
+    /* Tabs Search */
+    .search-input-box {
+      transform: translate(-50%, -50%);
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 40%;
+      margin-bottom: 15px;
+    }
+
+    .search-input:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    /* search Input Text on Mobile */
+    @media (max-width: 576px) {
+      .search-input-box {
+        width: 80%;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* ------------------------------------------------------------ */
+
+
+    /* Header Logo Text on Mobile */
+    @media (max-width: 576px) {
+      .header .logo h1 {
+        font-size: 16px;
+      }
+    }
+
+    /* ------------------------------------------------------------ */
+
+
+    /* Account and Cart Box (dropdown) */
+    .cart-box,
+    .wishlist-box {
+      width: 350px;
+    }
+
+    .wishlist-head,
+    .wishlist-main,
+    .cart-head,
+    .cart-main,
+    .cart-subtotal-box {
+      border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    }
+
+    .wishlist-add-cart-btn {
+      font-size: 11px;
+    }
+
+    .wishlist-head-text,
+    .cart-head-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+
+    .wishlist-head-items-text,
+    .cart-head-items-text {
+      font-size: 12px;
+      font-weight: 500;
+      color: color-mix(in srgb, var(--default-color), transparent 50%);
+    }
+
+    .wishlist-item-title,
+    .cart-item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+
+    .wishlist-item-price,
+    .cart-item-price,
+    .total-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .total-price-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: color-mix(in srgb, var(--default-color), transparent 50%);
+    }
+
+    .wishlist-view-text,
+    .wishlist-checkout-text,
+    .cart-view-text,
+    .cart-checkout-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: color-mix(in srgb, var(--default-color), transparent 50%);
+    }
+
+    .wishlist-del-icon i,
+    .cart-del-icon i {
+      cursor: pointer;
+      font-style: 8px;
+      color: color-mix(in srgb, var(--default-color), transparent 50%);
+    }
+
+    .wishlist-del-icon i:hover,
+    .cart-del-icon i:hover {
+      color: color-mix(in srgb, var(--default-color), transparent 30%);
+    }
+
+    .wishlist-box,
+    .account-box,
+    .cart-box {
+      max-width: 400px;
+      margin: 0;
+      padding: 20px;
+      background: var(--nav-dropdown-background-color);
+      border-radius: 4px;
+      box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+      display: block;
+
+      position: absolute;
+      right: 0;
+      top: 200%;
+
+      visibility: hidden;
+      opacity: 0;
+      z-index: 99;
+
+      transition: 0.3s;
+    }
+
+    /* Only Show CART and WISHLIST on Tablet-Above Tab Devices */
+    @media screen and (min-width: 768px) {
+
+      /* Cart Box Show */
+      .cart-dropdown:hover .cart-box {
+        top: 160%;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      /* Wishlist Box Show */
+      .wishlist-dropdown:hover .wishlist-box {
+        top: 160%;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    /* Account Box Show */
+    .account-dropdown:hover .account-box {
+      top: 160%;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* ------------------------------------------------------------ */
+
+    .sticky-tabs {
+      position: sticky;
+      top: 90px;
+
+      background-color: white;
+      padding: 10px 0;
+      z-index: 996;
+    }
+
+    @media (max-width: 1024px) {
+      .sticky-tabs {
+        top: 76px;
+      }
+    }
+
+    /* ------------------------------------------------------------ */
+
+    .menu-item {
+      text-align-last: left !important;
+    }
+
+    .menu-img {
+      width: 130px;
+      height: 130px;
+    }
+
+    .menu .tab-content .menu-item .menu-img {
+      padding: 16px 0 0 16px !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 380px) {
+      .menu-img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .menu-cart-btn {
+        font-size: 12px;
+      }
+    }
+
+    /* ------------------------------------------------------------ */
+
+    /* Chefs Carousel */
+    .member-img img {
+      height: 247px !important;
+      width: 100%;
+    }
+
+    .chefs .swiper-wrapper {
+      height: 450px;
+      /* height: max-content; */
+    }
+
+    .chefs .swiper-pagination {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .chefs .swiper-pagination .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background-color: color-mix(in srgb, var(--default-color), transparent 85%);
+      opacity: 1;
+    }
+
+    .chefs .swiper-pagination .swiper-pagination-bullet-active {
+      background-color: var(--accent-color);
+    }
+  </style>
+
 </head>
 
 <body class="index-page">
@@ -45,20 +282,21 @@
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
-      <a href="/static/index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+      <a href="/static/index.html" class="logo d-flex align-items-center me-auto me-xl-0 order-2 order-xl-1">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="/static/assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Best Bite</h1>
         <span>.</span>
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu order-1 order-xl-2">
         <ul>
           <li><a href="#hero" class="active">Home<br></a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#menu">Menu</a></li>
           <li><a href="#events">Events</a></li>
           <li><a href="#chefs">Chefs</a></li>
+          <li><a href="#book-a-table">Book Now</a></li>
           <li><a href="#gallery">Gallery</a></li>
 
 
@@ -67,7 +305,130 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      {% if user.is_authenticated %}
+
+      <!-- //////////////////////////////// Ahmar Frontend starts -->
+      <div class="functional-btns d-flex justify-content-between align-items-center column-gap-3 order-3 order-xl-3">
+
+        <!-- wishlist dropdown -->
+        <div class="wishlist-dropdown position-relative">
+          <a class="d-flex align-items-center justify-content-between" href="">
+            <i class="fa-regular fa-heart position-relative" style="font-size: 18px; margin-right: 8px;">
+              <div
+                class="wishlist-num d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle bg-danger text-light rounded-circle p-1"
+                style="width: 18px; height: 18px; font-size: 10px;">
+                12
+              </div>
+            </i>
+            <p class="m-0 mt-1" style="font-size: 13px;">Wishlist</p>
+          </a>
+
+          <div class="wishlist-box">
+            <div class="wishlist-head pb-4">
+              <p class="m-0"><span class="wishlist-head-text me-2">Your Wishlist</span><span
+                  class="wishlist-head-items-text">(1
+                  Item in
+                  wishlist)</span></p>
+            </div>
+
+            <ul class="wishlist-main p-0 py-2 m-0">
+              <li class="d-flex align-items-start column-gap-3">
+                <img class="wishlist-img" width="60px" height="60px" src="static/assets/img/menu/menu-item-1.png"
+                  alt="wishlist-image" />
+                <div class="wishlist-content">
+                  <p class="wishlist-item-title mb-2">Crown Pizza (Juicy Lava etc) This is Title can be alrge text</p>
+                  <button class="wishlist-add-cart-btn btn btn-danger">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                  </button>
+                </div>
+                <span class="wishlist-del-icon"><i class="fa-solid fa-x"></i></span>
+              </li>
+            </ul>
+
+            <div class="wishlist-footer pt-3 text-center">
+              <a class="wishlist-checkout-text" href="#">GO TO WISHLIST</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- cart dropdown -->
+        <div class="cart-dropdown position-relative">
+          <a class="d-flex align-items-center justify-content-between" href="">
+            <i class="fa-solid fa-cart-shopping position-relative" style="font-size: 18px; margin-right: 8px;">
+              <div
+                class="wishlist-num d-flex justify-content-center align-items-center position-absolute top-0 start-100 translate-middle bg-danger text-light rounded-circle p-1"
+                style="width: 18px; height: 18px; font-size: 10px;">
+                1
+              </div>
+            </i>
+            <p class="m-0 mt-1" style="font-size: 13px;">Cart</p>
+          </a>
+
+          <div class="cart-box">
+            <div class="cart-head pb-4">
+              <p class="m-0"><span class="cart-head-text me-2">Your Cart</span><span class="cart-head-items-text">(1
+                  Item in cart)</span></p>
+            </div>
+
+            <ul class="cart-main p-0 py-2 m-0">
+              <li class="d-flex align-items-start column-gap-3">
+                <img class="cart-img" width="60px" height="60px" src="static/assets/img/menu/menu-item-1.png"
+                  alt="cart-image" />
+                <div class="cart-content">
+                  <p class="cart-item-title mb-2">Crown Pizza (Juicy Lava etc) This is Title can be alrge text</p>
+                  <p class="cart-item-price m-0">$25</p>
+                </div>
+                <span class="cart-del-icon"><i class="fa-solid fa-x"></i></span>
+              </li>
+            </ul>
+
+            <div class="cart-subtotal-box py-2">
+              <div class="d-flex justify-content-between">
+                <p class="total-price-title">Subtotal</p>
+                <p class="total-price">$50</p>
+              </div>
+              <a class="cart-view-text" href="#">View cart</a>
+            </div>
+
+            <div class="cart-footer pt-2 text-center">
+              <a class="cart-checkout-text" href="#">CHECKOUT</a>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- account dropdown -->
+        <div class="account-dropdown position-relative">
+          <a class="btn-getstarted me-0 fs-6">
+            <!-- <i class="fas fa-user"></i> -->
+            Account
+          </a>
+          <div class="account-box">
+            {% if user.is_authenticated %}
+            <div class="login d-flex justify-content-between align-items-center column-gap-2">
+              <a class="btn-getstarted" href="{% url 'logout' %}" style="margin: 0px;">Logout</a>
+              <a class="btn-getstarted" href="" style="display: inline-flex; align-items: center;">
+                <i class="fas fa-user" style="margin-right: 8px;"></i> {{user.first_name}}
+              </a>
+              {% else %}
+              <div class="login d-flex justify-content-between align-items-center column-gap-2">
+                <a class="btn-getstarted" href="{% url 'login' %}" style="margin: 0px;">Login</a>
+                <a class="btn-getstarted" href="{% url 'register' %}" style="margin: 0px;">Register</a>
+                <a class="btn-getstarted" href="" style="display: inline-flex; align-items: center;">
+                  <i class="fas fa-user" style="margin-right: 8px;"></i> Guest
+                </a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Ahmar HTML ends -->
+
+
+      <!-- //////////////////// OLD login/signup -->
+      <!-- {% if user.is_authenticated %}
       <div style="margin-left: 20px; margin-right: 40px;" class="login">
         <a class="btn-getstarted" href="{% url 'logout' %}" style="margin: 0px;">Logout</a>
         <a class="btn-getstarted" href="" style="display: inline-flex; align-items: center;">
@@ -82,8 +443,7 @@
           </a>
         </div>
         {% endif %}
-
-      </div>
+      </div> -->
   </header>
 
   <main class="main">
@@ -227,23 +587,6 @@
 
     <!-- Stats Section -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Menu Section -->
     <section id="menu" class="menu section">
 
@@ -251,12 +594,21 @@
       <div class="container section-title" data-aos="fade-up">
         <h2>Our Menu</h2>
         <p><span>Check Our</span> <span class="description-title">Best Bite Menu</span></p>
+
       </div><!-- End Section Title -->
 
       <div class="container">
+        <!-- Search -->
+        <div class="search-input-box input-group text-center">
+          <span class="input-group-text bg-transparent rounded-0 border border-0 border-bottom border-danger-subtle"
+            id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input class="search-input form-control rounded-0 border border-0 border-bottom border-danger-subtle"
+            type="search" name="search" id="search" placeholder="search here">
+        </div>
 
         <!-- Tabs Navigation -->
-        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <ul id="menu-tabs" class="sticky-tabs nav nav-tabs d-flex justify-content-center flex-no-wrap row-gap-2"
+          data-aos="fade-up" data-aos-delay="100">
           {% for i in section %}
           <li class="nav-item">
             <a class="nav-link {% if forloop.first %}active show{% endif %}" data-bs-toggle="tab"
@@ -278,26 +630,25 @@
               <h3>{{ i.section_name }}</h3>
             </div>
 
-            <div class="row gy-5">
+            <div class="row gy-5 align-items-center justify-content-center">
               <!-- Display items belonging to the current section -->
               {% for y in menu %}
               {% if y.section_name == i %}
               <div class="col-lg-4">
-                <div class="card menu-item">
-                  <img style="width: 450px; height: 250px;" src="{{ y.img.url }}"
-                    class="card-img-top menu-img img-fluid" alt="{{ y.food_name }}">
-                  <div class="card-body text-center">
+                <div class="card menu-item flex-row">
+                  <img src="{{ y.img.url }}" class="card-img-top menu-img img-fluid" alt="{{ y.food_name }}">
+                  <div class="card-body text-start">
                     <h4 class="card-title">{{ y.food_name }}</h4>
                     <p class="card-text ingredients">{{ y.food_info }}</p>
                     <p class="price">${{ y.price }}</p>
                     <div class="d-flex justify-content-between mt-3">
-                      <!-- Favorite Button -->
-                      <button class="btn btn-outline-secondary" title="Add to Favorites">
-                        <i class="bi bi-heart"></i>
-                      </button>
                       <!-- Add to Cart Button -->
-                      <button class="btn btn-primary">
+                      <button class="btn btn-danger menu-cart-btn">
                         <i class="bi bi-cart-plus"></i> Add to Cart
+                      </button>
+                      <!-- Favorite Button -->
+                      <button class="heart-btn btn btn-outline-danger" title="Add to Favorites">
+                        <i class="fa-regular fa-heart"></i>
                       </button>
                     </div>
                   </div>
@@ -311,25 +662,26 @@
 
           </div><!-- End Section Tab Content -->
           {% endfor %}
-        </div>
 
+          <!-- Heart Filled State Logic -->
+          <script>
+            let heartIcon = document.querySelectorAll(".heart-btn");
+            heartIcon.forEach((heart) => {
+              heart.addEventListener("click", function (e) {
+                let targeted = e.target.closest(".heart-btn");
+                if (targeted.innerHTML.includes('fa-solid')) {
+                  targeted.innerHTML = "";
+                  targeted.insertAdjacentHTML("afterBegin", `<i class="fa-regular fa-heart"></i>`);
+                } else {
+                  targeted.innerHTML = "";
+                  targeted.insertAdjacentHTML("afterBegin", `<i class="fa-solid fa-heart"></i>`);
+                }
+              })
+            })
+          </script>
+        </div>
       </div>
     </section><!-- /Menu Section -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- Events Section -->
@@ -363,12 +715,11 @@
           }
         }
       </script>
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper align-items-center" style="height: 600px;">
             {% for i in birthday %}
-            <div class="swiper-slide event-item"
-              style="position: relative; height: 500px; width: 100%; overflow: hidden; margin: 0; padding: 0;">
+            <div class="swiper-slide event-item" style="padding: 0;">
               <div class="background-image"
-                style="background-image: url('{{ i.img.url }}'); background-size: cover; background-position: center; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; color: white; margin: 0; padding: 0; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
+                style="background-image: url('{{ i.img.url }}'); background-size: cover; background-position: center; height: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; color: white; margin: 0; padding: 30px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);">
                 <h3 style="margin: 0;">{{ i.custom_name }}</h3>
                 <div class="price align-self-start">${{ i.price }}</div>
                 <p class="description" style="margin: 0;">
@@ -385,16 +736,6 @@
 
     </section><!-- /Events Section -->
 
-
-
-
-
-
-
-
-
-
-
     <!-- Chefs Section -->
     <section id="chefs" class="chefs section">
 
@@ -406,10 +747,36 @@
 
       <div class="container">
 
-        <div class="row gy-4">
-          {% for i in chef %}
-          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="team-member">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": {
+            "delay": 5000
+          },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          },
+          "breakpoints": {
+            "320": {
+              "slidesPerView": 1,
+              "spaceBetween": 40
+            },
+            "1200": {
+              "slidesPerView": 3,
+              "spaceBetween": 1
+            }
+          }
+        }
+          </script>
+          <div class="chefs-swiper-wrapper swiper-wrapper align-items-center">
+            {% for i in chef %}
+            <div class="swiper-slide team-member px-3" data-aos="fade-up" data-aos-delay="100">
               <div class="member-img">
                 <img src="{{i.img.url}}" class="img-fluid" alt="">
 
@@ -420,22 +787,37 @@
                 <p>{{i.chef_des}}</p>
               </div>
             </div>
-          </div><!-- End Chef Team Member -->
-          {% endfor %}
-
-
+            <!-- <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+              
+            </div> -->
+            {% endfor %}
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
+
+        <!-- <div class="row gy-4">
+          {% for i in chef %}
+          <div class="col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member">
+              <div class="member-img">
+                <img height="237px" src="{{i.img.url}}" class="img-fluid" alt="">
+
+              </div>
+              <div class="member-info">
+                <h4>{{i.chef_name}}</h4>
+                <span>{{chef_title}}</span>
+                <p>{{i.chef_des}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %} -->
+        <!-- End Chef Team Member -->
+
+      </div>
 
       </div>
 
     </section><!-- /Chefs Section -->
-
-
-
-
-
-
-
 
 
     <section id="book-a-table" class="book-a-table section">
@@ -487,9 +869,6 @@
     </section><!-- /Book A Table Section -->
 
 
-
-
-
     <!-- Gallery Section -->
     <section id="gallery" class="gallery section light-background">
 
@@ -531,20 +910,20 @@
             }
           }
         }
-      </script>
-      
-      <div class="swiper-wrapper align-items-center">
-        {% for i in img %}
-        <div class="swiper-slide">
-          
-            <a class="glightbox" data-gallery="images-gallery" href="{{ i.img.url }}">
+          </script>
+
+          <div class="swiper-wrapper align-items-center">
+            {% for i in img %}
+            <div class="swiper-slide">
+
+              <a class="glightbox" data-gallery="images-gallery" href="{{ i.img.url }}">
                 <img src="{{ i.img.url }}" class="img-fluid" alt="">
-            </a>
-            
-        </div>
-        {% endfor %}
-    </div>
-   
+              </a>
+
+            </div>
+            {% endfor %}
+          </div>
+
           <div class="swiper-pagination"></div>
         </div>
 
@@ -553,13 +932,6 @@
     </section><!-- /Gallery Section -->
 
 
-
-
-
-
-
-
-    
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -622,82 +994,83 @@
         <div class="container">
           <!-- Display success message -->
           <div class="alert alert-success" id="successMessage" style="display: none;" role="alert"></div>
-      
-          <form method="POST" id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-delay="600" onsubmit="submitForm(event)">
-              {% csrf_token %}
-              <div class="row gy-4">
-                  <div class="col-md-6">
-                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                  </div>
-                  <div class="col-md-6">
-                      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                  </div>
-                  <div class="col-md-12">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                  </div>
-                  <div class="col-md-12">
-                      <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                  </div>
-                  <div class="col-md-12 text-center">
-                      <div class="loading" style="display: none;">Loading...</div>
-                      <div class="error-message text-danger" style="display: none;"></div>
-                      <button type="submit">Send Message</button>
-                  </div>
+
+          <form method="POST" id="contactForm" class="php-email-form" data-aos="fade-up" data-aos-offset="20" data-aos-delay="600"
+            onsubmit="submitForm(event)">
+            {% csrf_token %}
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
               </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+              </div>
+              <div class="col-md-12">
+                <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+              </div>
+              <div class="col-md-12">
+                <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+              </div>
+              <div class="col-md-12 text-center">
+                <div class="loading" style="display: none;">Loading...</div>
+                <div class="error-message text-danger" style="display: none;"></div>
+                <button type="submit">Send Message</button>
+              </div>
+            </div>
           </form><!-- End Contact Form -->
-      </div>
-      
-      <script>
+        </div>
+
+        <script>
           function showLoading() {
-              document.querySelector('.loading').style.display = 'block';
+            document.querySelector('.loading').style.display = 'block';
           }
-      
+
           function hideLoading() {
-              document.querySelector('.loading').style.display = 'none';
+            document.querySelector('.loading').style.display = 'none';
           }
-      
+
           function submitForm(event) {
-              event.preventDefault(); // Prevent the default form submission
-              showLoading(); // Show loading message
-      
-              const formData = new FormData(document.getElementById('contactForm'));
-      
-              fetch("{% url 'submit_contact_form' %}", {
-                  method: 'POST',
-                  body: formData,
-                  headers: {
-                      'X-Requested-With': 'XMLHttpRequest' // Specify AJAX request
-                  }
-              })
+            event.preventDefault(); // Prevent the default form submission
+            showLoading(); // Show loading message
+
+            const formData = new FormData(document.getElementById('contactForm'));
+
+            fetch("{% url 'submit_contact_form' %}", {
+              method: 'POST',
+              body: formData,
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest' // Specify AJAX request
+              }
+            })
               .then(response => response.json())
               .then(data => {
-                  hideLoading(); // Hide loading message
-                  const successMessageDiv = document.getElementById('successMessage');
-                  const errorMessageDiv = document.querySelector('.error-message');
-      
-                  if (data.success) {
-                      // Show success message
-                      successMessageDiv.textContent = "Your message has been sent. Thank you!"; // Set the success message
-                      successMessageDiv.style.display = 'block'; // Show the success message
-                      errorMessageDiv.style.display = 'none'; // Hide any previous error messages
-                      document.getElementById('contactForm').reset(); // Reset the form
-                  } else {
-                      // Handle errors
-                      errorMessageDiv.textContent = data.message; // Set the error message
-                      errorMessageDiv.style.display = 'block'; // Show the error message
-                      successMessageDiv.style.display = 'none'; // Hide the success message
-                  }
+                hideLoading(); // Hide loading message
+                const successMessageDiv = document.getElementById('successMessage');
+                const errorMessageDiv = document.querySelector('.error-message');
+
+                if (data.success) {
+                  // Show success message
+                  successMessageDiv.textContent = "Your message has been sent. Thank you!"; // Set the success message
+                  successMessageDiv.style.display = 'block'; // Show the success message
+                  errorMessageDiv.style.display = 'none'; // Hide any previous error messages
+                  document.getElementById('contactForm').reset(); // Reset the form
+                } else {
+                  // Handle errors
+                  errorMessageDiv.textContent = data.message; // Set the error message
+                  errorMessageDiv.style.display = 'block'; // Show the error message
+                  successMessageDiv.style.display = 'none'; // Hide the success message
+                }
               })
               .catch(error => {
-                  hideLoading(); // Hide loading message
-                  const errorMessageDiv = document.querySelector('.error-message');
-                  errorMessageDiv.textContent = 'An error occurred: ' + error.message; // Display error message
-                  errorMessageDiv.style.display = 'block'; // Show error message
-                  document.getElementById('successMessage').style.display = 'none'; // Hide success message
+                hideLoading(); // Hide loading message
+                const errorMessageDiv = document.querySelector('.error-message');
+                errorMessageDiv.textContent = 'An error occurred: ' + error.message; // Display error message
+                errorMessageDiv.style.display = 'block'; // Show error message
+                document.getElementById('successMessage').style.display = 'none'; // Hide success message
               });
           }
-      </script>
-      
+        </script>
+
 
     </section><!-- /Contact Section -->
 
@@ -753,7 +1126,7 @@
       </div>
     </div>
 
-    
+
 
   </footer>
 
@@ -771,6 +1144,7 @@
   <script src="/static/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="/static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="/static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
 
   <!-- Main JS File -->
   <script src="/static/assets/js/main.js"></script>
